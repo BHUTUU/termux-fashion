@@ -13,11 +13,11 @@ extra-keys = [ \
  ['ESC', \
  {key: '|', popup: "-"}, \
  {key: '/', popup: 'BACKSLASH'}, 'HOME',\
- {key: "UP", display: '⬆️'},'END',{key: 'PGUP', popup: '$'},{key: KEYBOARD, popup: {macro: "CTRL d", display: '⌧'}}], \
+ {key: "UP", display: '⬆️'},'END',{key: 'PGUP', popup: '$'},{key: 'DEL', popup: {macro: "CTRL l", display: '⌧'}}], \
  ['TAB','CTRL','ALT', \
  {key: "LEFT", display: '⬅️'}, \
  {key: "DOWN", display: '⬇️'}, \
- {key: "RIGHT", display: '➡️'}, 'PGDN', 'BKSP'] \
+ {key: "RIGHT", display: '➡️'}, 'PGDN', {key: 'BKSP', popup: KEYBOARD}] \
 ]
 CONF
 cat <<- CONF > ~/.termux/termux.properties.bk
@@ -25,11 +25,11 @@ extra-keys = [ \
  ['ESC', \
  {key: '|', popup: "-"}, \
  {key: '/', popup: 'BACKSLASH'}, 'HOME',\
- {key: "UP", display: '⬆️'},'END',{key: 'PGUP', popup: '$'},{key: KEYBOARD, popup: {macro: "CTRL d", display: '⌧'}}], \
+ {key: "UP", display: '⬆️'},'END',{key: 'PGUP', popup: '$'},{key: 'DEL', popup: {macro: "CTRL l", display: '⌧'}}], \
  ['TAB','CTRL','ALT', \
  {key: "LEFT", display: '⬅️'}, \
  {key: "DOWN", display: '⬇️'}, \
- {key: "RIGHT", display: '➡️'}, 'PGDN', 'BKSP'] \
+ {key: "RIGHT", display: '➡️'}, 'PGDN', {key: 'BKSP', popup: KEYBOARD}] \
 ]
 CONF
 
