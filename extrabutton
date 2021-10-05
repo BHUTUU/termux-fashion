@@ -1,0 +1,47 @@
+#!/data/data/com.termux/files/usr/bin/bash
+confile() {
+mkdir ~/.termux > /dev/null 2>&1
+touch ~/.termux/termux.properties > /dev/null 2>&1
+touch ~/.termux/termux.properties.bk > /dev/null 2>&1
+}
+if [[ -d "${HOME}/.termux" ]]; then
+confile
+fi
+
+cat <<- CONF > ~/.termux/termux.properties
+extra-keys = [ \
+ ['ESC', \
+ {key: '|', popup: "-"}, \
+ {key: '/', popup: 'BACKSLASH'}, 'HOME',\
+ {key: "UP", display: '⬆️'},'END',{key: 'PGUP', popup: '$'},{key: KEYBOARD, popup: {macro: "CTRL d", display: '⌧'}}], \
+ ['TAB','CTRL','ALT', \
+ {key: "LEFT", display: '⬅️'}, \
+ {key: "DOWN", display: '⬇️'}, \
+ {key: "RIGHT", display: '➡️'}, 'PGDN', 'BKSP'] \
+]
+CONF
+cat <<- CONF > ~/.termux/termux.properties.bk
+extra-keys = [ \
+ ['ESC', \
+ {key: '|', popup: "-"}, \
+ {key: '/', popup: 'BACKSLASH'}, 'HOME',\
+ {key: "UP", display: '⬆️'},'END',{key: 'PGUP', popup: '$'},{key: KEYBOARD, popup: {macro: "CTRL d", display: '⌧'}}], \
+ ['TAB','CTRL','ALT', \
+ {key: "LEFT", display: '⬅️'}, \
+ {key: "DOWN", display: '⬇️'}, \
+ {key: "RIGHT", display: '➡️'}, 'PGDN', 'BKSP'] \
+]
+CONF
+
+
+sleep 0.125
+if [[ $? == 0 ]]; then
+printf "\e[1;32mExtra keys enables successfully :)\e[0m\n"
+echo
+printf "\e[1;34mOpen a new session and enjoy ;)\e[0m\n"
+else
+printf "\e[1;32m[\e[1;31m!\e[1;31m]\e[1;31m failed! There may be some error occured during configuration :(\e[0m\n"
+echo
+printf "\e[1;34mYou may try again ;)\e[0m\n"
+fi
+
